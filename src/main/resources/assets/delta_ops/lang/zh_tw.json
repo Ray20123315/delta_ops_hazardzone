@@ -1,0 +1,57 @@
+{
+  "itemGroup.delta_ops": "三角洲行動",
+
+  "item.delta_ops.bandage": "繃帶",
+  "item.delta_ops.tourniquet": "止血帶",
+  "item.delta_ops.surgery_kit": "手術包",
+  "item.delta_ops.medkit": "醫療箱",
+  "item.delta_ops.painkiller": "止痛藥",
+  "item.delta_ops.rifle_mag": "步槍彈匣",
+  "item.delta_ops.pistol_mag": "手槍彈匣",
+  "item.delta_ops.ammo_box": "彈藥箱",
+  "item.delta_ops.tactical_vest": "戰術背心",
+  "item.delta_ops.backpack": "戰術背包",
+  "item.delta_ops.night_vision": "夜視鏡",
+  "item.delta_ops.gold_bar": "金條",
+  "item.delta_ops.intelligence_data": "情報資料",
+  "item.delta_ops.relic": "古代遺物",
+  "item.delta_ops.medical_supplies": "醫療物資",
+  "item.delta_ops.assault_rifle": "突擊步槍",
+  "item.delta_ops.smg": "衝鋒槍",
+  "item.delta_ops.shotgun": "霰彈槍",
+  "item.delta_ops.sniper_rifle": "狙擊步槍",
+  "item.delta_ops.pistol": "手槍",
+
+  "block.delta_ops.loot_crate": "戰利品箱",
+  "block.delta_ops.extraction_point": "撤離點",
+
+  "container.delta_ops.grid": "戰術背包",
+  "container.delta_ops.secure": "安全箱",
+  "container.delta_ops.loot_crate": "戰利品箱",
+
+  "message.delta_ops.extracting": "§e撤離倒數：%s 秒...",
+  "message.delta_ops.extraction_success": "§a✓ 撤離成功！物資已安全帶出。",
+  "message.delta_ops.extraction_cancelled": "§c✗ 撤離已取消 - 離開撤離區域。",
+  "message.delta_ops.surgery_done": "§a手術完成：%s 已修復。",
+  "message.delta_ops.surgery_no_blacked": "§7沒有需要手術的部位。",
+  "message.delta_ops.painkiller_applied": "§b止痛藥生效，60 秒內免疫部位懲罰。",
+  "message.delta_ops.tourniquet_applied": "§a止血成功，流血已停止。",
+  "message.delta_ops.tourniquet_no_bleeding": "§7你沒有在流血。",
+
+  "bodypart.delta_ops.head": "頭部",
+  "bodypart.delta_ops.chest": "胸部",
+  "bodypart.delta_ops.stomach": "腹部",
+  "bodypart.delta_ops.left_arm": "左臂",
+  "bodypart.delta_ops.right_arm": "右臂",
+  "bodypart.delta_ops.left_leg": "左腿",
+  "bodypart.delta_ops.right_leg": "右腿",
+
+  "tooltip.delta_ops.surgery_kit": "§6長按右鍵 8 秒：修復一個黑傷部位",
+  "tooltip.delta_ops.painkiller": "§b使用後 60 秒免疫部位懲罰",
+  "tooltip.delta_ops.tourniquet": "§a使用：停止流血",
+
+  "key.category.delta_ops": "三角洲行動",
+  "key.delta_ops.open_inventory": "開啟戰術背包",
+  "key.delta_ops.open_secure": "開啟安全箱",
+  "key.delta_ops.rotate": "旋轉物品"
+}

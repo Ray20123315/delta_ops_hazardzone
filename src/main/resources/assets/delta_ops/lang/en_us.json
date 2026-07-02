@@ -1,0 +1,57 @@
+{
+  "itemGroup.delta_ops": "Delta Ops: Hazard Zone",
+
+  "item.delta_ops.bandage": "Bandage",
+  "item.delta_ops.tourniquet": "Tourniquet",
+  "item.delta_ops.surgery_kit": "Surgery Kit",
+  "item.delta_ops.medkit": "Medkit",
+  "item.delta_ops.painkiller": "Painkillers",
+  "item.delta_ops.rifle_mag": "Rifle Magazine",
+  "item.delta_ops.pistol_mag": "Pistol Magazine",
+  "item.delta_ops.ammo_box": "Ammo Box",
+  "item.delta_ops.tactical_vest": "Tactical Vest",
+  "item.delta_ops.backpack": "Tactical Backpack",
+  "item.delta_ops.night_vision": "Night Vision Goggles",
+  "item.delta_ops.gold_bar": "Gold Bar",
+  "item.delta_ops.intelligence_data": "Intelligence Data",
+  "item.delta_ops.relic": "Ancient Relic",
+  "item.delta_ops.medical_supplies": "Medical Supplies",
+  "item.delta_ops.assault_rifle": "Assault Rifle",
+  "item.delta_ops.smg": "SMG",
+  "item.delta_ops.shotgun": "Shotgun",
+  "item.delta_ops.sniper_rifle": "Sniper Rifle",
+  "item.delta_ops.pistol": "Pistol",
+
+  "block.delta_ops.loot_crate": "Loot Crate",
+  "block.delta_ops.extraction_point": "Extraction Point",
+
+  "container.delta_ops.grid": "Tactical Backpack",
+  "container.delta_ops.secure": "Secure Container",
+  "container.delta_ops.loot_crate": "Loot Crate",
+
+  "message.delta_ops.extracting": "§eExtracting in: %s seconds...",
+  "message.delta_ops.extraction_success": "§a✓ Extraction successful! Supplies secured.",
+  "message.delta_ops.extraction_cancelled": "§c✗ Extraction cancelled - left extraction zone.",
+  "message.delta_ops.surgery_done": "§aSurgery complete: %s repaired.",
+  "message.delta_ops.surgery_no_blacked": "§7No blacked body parts to operate on.",
+  "message.delta_ops.painkiller_applied": "§bPainkillers active: immune to limb penalties for 60s.",
+  "message.delta_ops.tourniquet_applied": "§aTourniquet applied: bleeding stopped.",
+  "message.delta_ops.tourniquet_no_bleeding": "§7You are not bleeding.",
+
+  "bodypart.delta_ops.head": "Head",
+  "bodypart.delta_ops.chest": "Chest",
+  "bodypart.delta_ops.stomach": "Stomach",
+  "bodypart.delta_ops.left_arm": "Left Arm",
+  "bodypart.delta_ops.right_arm": "Right Arm",
+  "bodypart.delta_ops.left_leg": "Left Leg",
+  "bodypart.delta_ops.right_leg": "Right Leg",
+
+  "tooltip.delta_ops.surgery_kit": "§6Hold right-click 8s: Repair one blacked body part",
+  "tooltip.delta_ops.painkiller": "§b60s immunity to limb penalties",
+  "tooltip.delta_ops.tourniquet": "§aUse: Stop bleeding",
+
+  "key.category.delta_ops": "Delta Ops: Hazard Zone",
+  "key.delta_ops.open_inventory": "Open Tactical Backpack",
+  "key.delta_ops.open_secure": "Open Secure Container",
+  "key.delta_ops.rotate": "Rotate Item"
+}
