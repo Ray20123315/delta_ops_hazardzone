@@ -1,300 +1,300 @@
-# 三角洲行動：烽火地帶
+# Delta Ops: Hazard Zone
 
-Minecraft 1.20.1 Forge 硬核撤離射擊模組。
+A hardcore extraction shooter mod for Minecraft 1.20.1 Forge.
 
-這個專案的目標，是把「摸金、搜刮、撤離、倒地救援、死亡掉落」這一套硬核生存循環搬進 Minecraft，並以可擴充的資料驅動架構去串接武器、醫療、背包、幹員與後續外部模組整合。
+The goal of this project is to bring the hardcore survival loop of "looting, scavenging, extraction, downed rescue, and death drops" into Minecraft. It utilizes an expandable, data-driven architecture to integrate weapons, medical supplies, backpacks, operators, and future external mod integrations.
 
-## 目前版本能做什麼
+## What the Current Version Can Do
 
-目前這個模組已經能完整跑起一個基礎版的撤離玩法閉環。你可以帶裝進圖、搜刮物資、在地圖上打 AI 或其他玩家、去撤離點讀條離開；如果被打倒，也不會立刻結束，而是會先進入倒地狀態，等隊友按住右鍵救援，或你自己靠擊殺敵人恢復行動能力。
+Currently, this mod can fully run a basic extraction gameplay loop. You can enter a map with gear or do a "zero-to-hero" run (hatchet run). You can scavenge for loot, fight AI or other players, and head to an extraction point to extract. If you take fatal damage, you won't die instantly; instead, you will enter a downed state, waiting for a teammate to hold right-click to rescue you, or you can self-revive by securing a kill.
 
-簡單說，現在已經有以下核心內容：
+In short, the following core features are already implemented:
 
-- 撤離點與撤離倒數
-- 戰術背包與安全箱
-- 黑傷 / 流血 / 止痛 / 手術包等醫療系統
-- 倒地、救援、反覆倒地懲罰
-- 屍體外觀與死亡包
-- AI / 玩家死亡掉裝與搜刮掉落
-- 戰利品箱與資料表掉落
-- 基礎 KubeJS 合成配方
+- Extraction points and extraction countdowns
+- Tactical backpacks and secure containers
+- Medical system (Blacked-out parts / Bleeding / Painkillers / Surgery kits)
+- Downed state, rescue mechanics, and repeated down penalties
+- Corpse visuals and Corpse Bags (Death bags)
+- AI / Player death drops and scavenging mechanics
+- Loot crates and data-driven loot tables
+- Basic KubeJS crafting recipes
 
-## 核心玩法循環
+## Core Gameplay Loop
 
-### 1. 進圖
+### 1. Infiltration (Entering the Map)
 
-玩家可以帶著自訂裝備進入地圖，也可以裸裝跑刀。進圖後的重點不是刷怪，而是：
+Players can bring custom gear into the map or enter with nothing. The main focus after spawning is not just grinding mobs, but rather:
 
-- 搜刮地圖上的高價值物資
-- 清掉 AI 士兵或其他玩家
-- 找到撤離點並成功撤離
+- Scavenging high-value loot scattered across the map
+- Eliminating AI soldiers or other players
+- Locating an extraction point and successfully extracting
 
-### 2. 搜刮與戰鬥
+### 2. Scavenging & Combat
 
-目前已實作的搜刮來源包含：
+Currently implemented loot sources include:
 
-- 戰利品箱
-- 敵對生物死亡掉落
-- 玩家死亡後的屍體包
-- 撤離帶出後的安全保存
+- Loot crates
+- Hostile mob death drops
+- Corpse bags from dead players
+- Items safely retained in the Secure Container after extraction
 
-### 3. 撤離
+### 3. Extraction
 
-玩家站上撤離點後會開始倒數。倒數完成後會被傳回主世界出生點，並送出撤離成功訊息。
+Once a player stands on an extraction point, a countdown begins. After the countdown completes, the player is teleported back to the overworld spawn point, and a successful extraction message is broadcast. 
 
-如果中途離開撤離區，倒數會取消。
+If the player leaves the extraction zone midway, the countdown is canceled.
 
-## 已實作系統
+## Implemented Systems
 
-## 1. 裝備系統
+## 1. Equipment System
 
-### 物品類型
+### Item Categories
 
-目前物品已經分成幾個大類：
+Items are currently categorized into several main types:
 
-- 醫療道具
-- 彈藥道具
-- 裝備道具
-- 高價值戰利品
-- 武器道具
+- Medical Items
+- Ammunition
+- Equipment / Gear
+- High-Value Loot
+- Weapons
 
-### 戰術背包與安全箱
+### Tactical Backpacks & Secure Containers
 
-這套系統不是原版背包，而是二維網格式的物品管理：
+This system replaces the vanilla inventory with a 2D grid-based item management system:
 
-- 物品有寬高概念
-- 可以旋轉
-- 可以從網格中取出或放入
-- 有獨立同步封包
-- 安全箱會在玩家死亡時保留
-- 普通網格背包會隨死亡流失
+- Items have specific width and height dimensions
+- Items can be rotated
+- Items can be placed into or taken out of the grid
+- Independent packet synchronization
+- **Secure Containers:** Items inside are retained upon death
+- **Normal Grid Backpacks:** Items inside are lost upon death
 
-### 目前可用物品
+### Currently Available Items
 
-目前已註冊的物品包含：
+Registered items currently include:
 
-- 止血帶
-- 止血繃帶 / Bandage
-- 手術包
-- 醫療箱 / Medkit
-- 止痛藥
-- 步槍彈匣
-- 手槍彈匣
-- 彈藥箱
-- 戰術背心
-- 戰術背包
-- 夜視鏡
-- 金條
-- 情報資料
-- 古代遺物
-- 醫療物資
-- 突擊步槍
-- 衝鋒槍
-- 霰彈槍
-- 狙擊步槍
-- 手槍
+- Tourniquet
+- Bandage
+- Surgery Kit
+- Medkit
+- Painkillers
+- Rifle Magazine
+- Pistol Magazine
+- Ammo Box
+- Tactical Vest
+- Tactical Backpack
+- Night Vision Goggles
+- Gold Bar
+- Intel Data
+- Ancient Relic
+- Medical Supplies
+- Assault Rifle
+- Submachine Gun (SMG)
+- Shotgun
+- Sniper Rifle
+- Pistol
 
-## 2. 醫療與健康系統
+## 2. Medical & Health System
 
-這是目前最完整的核心系統之一。
+This is currently one of the most complete core systems.
 
-### 部位傷害
+### Body Part Health
 
-已經有七大部位健康的概念：
+Health is divided into seven specific body parts:
 
-- 頭
-- 胸
-- 腹部
-- 左臂
-- 右臂
-- 左腿
-- 右腿
+- Head
+- Chest
+- Abdomen
+- Left Arm
+- Right Arm
+- Left Leg
+- Right Leg
 
-### 黑傷效果
+### Blacked-Out Effects (Zero HP)
 
-部位血量歸零後會進入黑傷，並對應不同懲罰：
+When a body part's health reaches zero (blacked-out), specific debuffs are applied:
 
-- 腿黑了會減速
-- 手黑了會挖掘 / 使用變慢
-- 腹部黑了會更容易飢餓
-- 流血會持續掉血
+- **Blacked Leg:** Movement speed is reduced
+- **Blacked Arm:** Mining/Use speed is reduced
+- **Blacked Abdomen:** Hunger depletes much faster
+- **Bleeding:** Continuous health loss over time
 
-### 可用醫療物品
+### Usable Medical Items
 
-- 止血帶：處理流血
-- 藥包 / Bandage：基礎回血
-- 手術包：修復黑傷部位
-- 止痛藥：暫時抑制黑傷懲罰
-- 醫療箱：較高階的回血手段
+- **Tourniquet:** Stops bleeding
+- **Bandage:** Basic health restoration
+- **Surgery Kit:** Restores blacked-out body parts to a functional state
+- **Painkillers:** Temporarily suppresses the debuffs of blacked-out parts
+- **Medkit:** Advanced health restoration
 
-### 目前行為
+### Current Mechanics
 
-- 使用止痛藥後可暫時壓住黑傷副作用
-- 手術包可把黑傷部位修回可用狀態
-- 流血狀態會定時扣血
-- 撞傷 / 枪傷可一路往死亡或倒地推進
+- Using painkillers temporarily suppresses blacked-out side effects
+- Surgery kits restore blacked-out parts to a usable state
+- Bleeding causes periodic damage
+- Fall damage / Gunshot wounds can progress toward a downed state or death
 
-## 3. 倒地與救援系統
+## 3. Downed & Rescue System
 
-這一套是目前的重點功能。
+This is a major highlight of the current build.
 
-### 倒地規則
+### Downed Rules
 
-當玩家受到致命傷時，不會直接結束，而是先進入倒地：
+When a player takes fatal damage, they do not die immediately but enter a downed state:
 
-- 60 秒基礎倒地倒數
-- 倒地時不能攻擊、不能使用物品
-- 倒地時會持續受限，視覺與操作都會被壓住
+- 60-second base downed countdown
+- Cannot attack or use items while downed
+- Movement, vision, and actions are severely restricted
 
-### 救援規則
+### Rescue Rules
 
-- 隊友必須按住右鍵才能持續救援
-- 鬆手會立刻中斷
-- 救援重來要重新讀條
-- 救援成功後會把玩家拉回來並恢復部分血量
+- Teammates must HOLD right-click to continuously rescue the downed player
+- Releasing the button will immediately interrupt the process
+- Retrying the rescue restarts the progress bar
+- A successful rescue revives the player and restores a portion of their health
 
-### 反覆倒地懲罰
+### Repeated Down Penalties
 
-目前已加入反覆倒地加重機制：
+A penalty mechanism for going down repeatedly is implemented:
 
-- 每次再倒地，後續倒地時間會被壓縮
-- 反覆倒地的救援壓力也會增加
-- 讓玩家不能無腦硬衝，必須重視撤退與支援
+- Each subsequent down compresses (shortens) the downed timer
+- The pressure to rescue increases with repeated downs
+- Prevents players from rushing mindlessly, emphasizing tactical retreats and teamwork
 
-### 自救規則
+### Self-Revive Rules
 
-如果玩家在倒地期間擊殺敵人，會觸發自救恢復，重新回到可行動狀態。
+If a player manages to secure a kill while in the downed state, it triggers a self-revive, restoring their mobility.
 
-## 4. 屍體與死亡包
+## 4. Corpses & Corpse Bags
 
-玩家死亡後，現在不只是單純掉物品。
+Death is no longer just a simple item drop.
 
-### 屍體外觀
+### Corpse Visuals
 
-死亡時會在死亡地點生成一個屍體標記，作為死亡位置的視覺提示。
+Upon death, a visual corpse marker is generated at the location of death as a visual cue.
 
-### 死亡包 / Corpse Bag
+### Corpse Bag
 
-死亡後的物資會被收進一個可撿取的屍袋方塊中：
+Dropped loot is gathered into a lootable "Corpse Bag" block:
 
-- 玩家死亡掉落會集中進屍袋
-- 玩家身上的網格背包內容會進去
-- 安全箱內容會依保留邏輯留下
-- 其他人可以右鍵撿取屍袋
+- Player death drops are centralized into this bag
+- The contents of the player's grid backpack are transferred into it
+- Secure Container contents remain with the player based on retention logic
+- Other players can right-click to loot the Corpse Bag
 
-這讓死亡不只是純懲罰，也會形成可回收戰利品的風險點。
+This makes death not just a penalty, but also creates a risk-reward hotspot for scavengers.
 
-## 5. 搜刮機制
+## 5. Scavenging Mechanics
 
-### 戰利品箱
+### Loot Crates
 
-目前已經有三種等級的戰利品箱：
+There are currently three tiers of loot crates:
 
-- 普通
-- 稀有
-- 史詩
+- Normal
+- Rare
+- Epic
 
-戰利品箱內容是從 JSON loot table 讀取，不是硬編寫死。
+Loot crate contents are driven by JSON loot tables, meaning they are not hardcoded.
 
-### 掉落來源
+### Loot Sources
 
-現有掉落來源包含：
+Current sources of loot include:
 
-- 戰利品箱
-- 敵對生物死亡掉落
-- 屍體包
-- 地圖上的物資點
+- Loot Crates
+- Hostile Mob Drops
+- Corpse Bags
+- Static loot spawn points on the map
 
-### 資料驅動優點
+### Advantages of Data-Driven Loot
 
-這樣的好處是後續要調整掉落，不需要一直改 Java：
+This allows for easy adjustments without needing to recompile Java code:
 
-- 改 loot table 就能換內容
-- 可以很快做事件掉落
-- 可以做普通 / 高階 / 首領差異化
+- Modifying loot tables changes the drops instantly
+- Easy to set up event-specific drops
+- Differentiated loot pools for normal mobs, elites, and bosses
 
-## 6. AI 與戰鬥掉落
+## 6. AI & Combat Drops
 
-目前已經有基礎的敵對生物死亡掉落邏輯：
+Basic logic for hostile mob death drops is already in place:
 
-- 敌對生物死後會掉出裝備與戰術物資
-- 會優先保留主手、副手、護甲等內容
-- 也會隨機掉出醫療、彈匣、背包、高價值物資
+- Hostile mobs drop gear and tactical supplies upon death
+- Prioritizes dropping their main hand, off-hand, and armor items
+- Randomly drops medical items, magazines, backpacks, and high-value loot
 
-這是未來接 TaCZ / 戰術 AI 模組時的基礎接口。
+This serves as the foundational interface for future integration with TaCZ (Timeless and Classics Zero) or Tactical AI mods.
 
-## 7. 撤離系統
+## 7. Extraction System
 
-### 撤離點
+### Extraction Points
 
-- 站上撤離點會開始倒數
-- 離開撤離區會中止
-- 倒數結束會成功撤離
+- Standing on the extraction point initiates the countdown
+- Leaving the extraction zone cancels the process
+- Completing the countdown results in a successful extraction
 
-### 撤離成功效果
+### Extraction Success Effects
 
-- 玩家會被傳送回主世界出生點
-- 成功訊息會顯示在聊天欄
-- 安全箱物資保留
+- The player is teleported back to the overworld spawn point
+- A success message is broadcasted in the chat
+- Items in the Secure Container are retained
 
-## 8. 幹員資料系統
+## 8. Operator Data System
 
-目前幹員資料架構已存在，包含：
+The underlying data architecture for Operators is established, including:
 
-- 幹員選擇資料
-- 幹員能力資料結構
-- 玩家重生複製時的能力保存
+- Operator selection data
+- Operator ability data structures
+- Ability preservation during player respawns/cloning
 
-這一部分目前比較偏資料層和擴充層，尚未完整接成遊戲內選單或完整技能樹，但已經把資料結構先建立好。
+This part is currently focused on the data and expansion layer. It has not yet been fully integrated into an in-game GUI or a complete skill tree, but the structural foundation is ready.
 
-## 操作方式
+## Controls
 
-### 現在可用的操作
+### Currently Available Actions
 
-- 開啟戰術背包
-- 開啟安全箱
-- 在網格中放入、取出、旋轉物品
-- 右鍵使用醫療物品
-- 倒地時等待隊友按住右鍵救援
-- 撤離點等待讀條成功撤離
+- Open Tactical Backpack
+- Open Secure Container
+- Place, remove, and rotate items within the grid
+- Right-click to use medical items
+- Wait for a teammate to hold right-click to rescue when downed
+- Wait for the countdown bar at an extraction point
 
-### 背包操作
+### Backpack Controls
 
-- 左鍵點選物品取出
-- 對網格右鍵 / 控制項處理放置與同步
-- `R` 可旋轉支援旋轉的物品
+- **Left-click:** Pick up / Extract item
+- **Right-click / Inventory Controls:** Place items and sync grid
+- **`R` Key:** Rotate items (for items that support rotation)
 
-## 資料與內容檔案
+## Data & Content Files
 
-這個專案有不少內容是資料驅動的：
+Much of this project's content is data-driven:
 
-- `src/main/resources/data/...`：loot table
-- `src/main/resources/assets/...`：語言、模型、方塊狀態
-- `kubejs/server_scripts/...`：基礎合成配方
+- `src/main/resources/data/...` : Loot tables
+- `src/main/resources/assets/...` : Languages, models, blockstates
+- `kubejs/server_scripts/...` : Basic crafting recipes
 
-也就是說，很多未來擴充可以直接靠 JSON / KubeJS 完成，不一定要先寫 Java。
+This means future expansions can largely be handled via JSON / KubeJS without necessarily writing new Java code.
 
-## 目前專案狀態
+## Current Project Status
 
-目前這個 mod 已經不是單純的骨架，而是有以下可用成果：
+Currently, this mod is no longer just a skeleton; it features the following playable elements:
 
-- 可進行撤離玩法
-- 可進行死亡後救援
-- 可做基礎搜刮與物資保存
-- 可用醫療道具處理黑傷與流血
-- 可撿屍體包
-- 可透過 loot table 調整掉落
+- Playable extraction loop
+- Post-death downed & rescue mechanics
+- Basic scavenging and loot retention
+- Medical items to treat blacked-out parts and bleeding
+- Lootable corpse bags
+- Customizable drops via loot tables
 
-## 後續最適合接的內容
+## Recommended Next Steps for Integration
 
-如果要繼續往完整「烽火地帶」靠攏，下一步最適合接的是：
+To fully realize the "Hazard Zone" experience, the most suitable next steps are:
 
-- 地圖內固定搜刮點類型細分
-- AI 士兵與首領掉落表
-- 護甲 / 頭盔 / 背包的更細重量與防護差異
-- 幹員技能與組隊定位
-- 與外部槍械模組的更深度整合
+- Refining specific static loot spawn types within maps
+- Setting up specific drop tables for AI soldiers and bosses
+- Implementing detailed weight and protection differences for armor/helmets/backpacks
+- Fleshing out Operator skills and team roles
+- Deeper integration with external firearm mods
 
-## 備註
+## Note
 
-這份 README 只描述目前程式裡已經實作的內容。尚未接上的外部大型模組整合，會在之後視實際需求逐步補進來。
+This README only describes the features currently implemented in the code. Large-scale external mod integrations will be added gradually based on actual future needs.
