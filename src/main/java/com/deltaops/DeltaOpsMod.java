@@ -1,16 +1,33 @@
 package com.deltaops;
 
+import com.deltaops.block.ModBlocks;
+import com.deltaops.config.ModConfig;
+import com.deltaops.network.ModNetwork;
+import com.deltaops.screen.ModMenuTypes;
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-public final class DeltaOpsMod {
+@Mod(DeltaOpsMod.MOD_ID)
+public class DeltaOpsMod {
     public static final String MOD_ID = "delta_ops_hazardzone";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    private DeltaOpsMod() {
-    }
+    public DeltaOpsMod() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-    public static void logLegacyModLoaded() {
-        LOGGER.info("三角洲行動 - 烽火地帶已載入");
+        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER, ModConfig.SPEC);
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModBlocks.BLOCK_ENTITY_TYPES.register(modEventBus);
+        ModMenuTypes.MENU_TYPES.register(modEventBus);
+        com.deltaops.item.ModItems.ITEMS.register(modEventBus);
+        ModNetwork.register();
+        com.deltaops.loot.GlobalLootDatabase.getInstance().load();
+        com.deltaops.lobby.EconomyManager.init();
+
+        LOGGER.info("=========== Delta Ops: Hazard Zone 已成功載入！ ===========");
     }
 }

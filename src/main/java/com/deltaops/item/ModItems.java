@@ -43,4 +43,7 @@ public class ModItems {
     public static final RegistryObject<Item> SHOTGUN = ITEMS.register("shotgun", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SNIPER_RIFLE = ITEMS.register("sniper_rifle", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol", () -> new Item(new Item.Properties()));
+
+    // ===== 戰術容器工具 =====
+    public static final RegistryObject<Item> BRAIN_COMPUTER_INTERFACE = ITEMS.register("brain_computer_interface", () -> new Item(new Item.Properties()));
 }

@@ -51,7 +51,9 @@
   "tooltip.delta_ops.tourniquet": "§aUse: Stop bleeding",
 
   "key.category.delta_ops": "Delta Ops: Hazard Zone",
+  "key.category.delta_ops_hazardzone.tactical": "Delta Ops Tactical",
   "key.delta_ops.open_inventory": "Open Tactical Backpack",
   "key.delta_ops.open_secure": "Open Secure Container",
-  "key.delta_ops.rotate": "Rotate Item"
+  "key.delta_ops.rotate": "Rotate Item",
+  "key.delta_ops_hazardzone.open_secure_box": "Open Secure Box"
 }
