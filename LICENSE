@@ -1,3 +1,58 @@
-Copyright (c) 2026 ray20123315. All Rights Reserved.
+========================================================================
+DELTA OPS: HAZARD ZONE - END USER LICENSE AGREEMENT (EULA)
+STRICT PROPRIETARY LICENSE
+========================================================================
+IMPORTANT LEGAL NOTICE: Please read this End User License Agreement ("Agreement") carefully. By downloading, installing, copying, or otherwise using any part of this Minecraft mod ("the Mod"), you agree to be bound by the terms of this Agreement. If you do not agree to the terms of this Agreement, do not download, install, or use the Mod.
 
-Unauthorised copying, modification, distribution, or decompilation of this software, via any medium, is strictly prohibited. Proprietary and confidential.
+This Agreement is a legal contract between the original creator/development team Ray20123315 (hereinafter referred to as the "Copyright Holder") and the individual or entity downloading, installing, or using the Mod (hereinafter referred to as the "User"). This Agreement applies strictly to the delta_ops_hazardzone_Alpha project and all its subsequent derivative and compiled versions.
+
+ARTICLE 1: OWNERSHIP & INTELLECTUAL PROPERTY
+The Mod (Project Name: delta_ops_hazardzone_Alpha), including but not limited to all Java source code, compiled bytecodes, 3D models, textures, audio files, animation data, localized text, and related artistic assets, are the sole and exclusive intellectual property of the Copyright Holder, Ray20123315. Unless expressly specified in this Agreement, the Copyright Holder retains all rights not explicitly granted to the User (All Rights Reserved).
+
+ARTICLE 2: GRANT OF LICENSE & CORE RESTRICTIONS
+The Copyright Holder grants the User a non-exclusive, non-transferable, revocable, and limited personal license to load the Mod on a personal computer for the purpose of playing Minecraft. The User MUST strictly adhere to the following prohibitions:
+
+No Decompilation or Reverse Engineering: The User shall not decompile, disassemble, decrypt, modify, or perform any form of reverse engineering on the compiled .jar files of the Mod.
+
+No Asset Extraction: The User is strictly prohibited from extracting and independently using any proprietary assets (such as art, textures, 3D models, sound effects) contained within the Mod, or porting/applying them to other video games, software projects, or unofficial derivative works.
+
+Restrictions on Modification: The User is only permitted to make minor tweaks to the Mod for purely private, non-distributed entertainment purposes; any public distribution or dissemination of Modified Versions is STRICTLY PROHIBITED.
+
+ARTICLE 3: ANTI-PIRACY & DISTRIBUTION CHANNELS
+To protect community safety and prevent the injection of malicious code, strict distribution controls are enforced:
+
+The User is absolutely prohibited from re-uploading or mirroring the original source files or compiled .jar files of the Mod to any unauthorized third-party platforms, websites, forums, or cloud storage without the written consent of the Copyright Holder.
+
+Legal downloads of this Mod are exclusively restricted to official release pages operated or designated by the Copyright Holder (e.g., CurseForge, Modrinth, or the official GitHub repository).
+
+ARTICLE 4: MODPACKS POLICY
+The Copyright Holder specifically grants the User the right to integrate the Mod into Minecraft Modpacks and publish them publicly, provided that the following strict conditions are met:
+
+The Modpack must be hosted and distributed entirely on legitimate, officially recognized platforms (e.g., CurseForge, Modrinth, ATLauncher, Feed The Beast).
+
+The Modpack must not charge players any direct download fees, must not implement paywalls, and must prominently credit the name of this Mod and the original author (Ray20123315) on the Modpack's information page.
+
+ARTICLE 5: COMMERCIALIZATION & MONETIZATION RESTRICTIONS
+Any direct or indirect commercial monetization of this Mod is strictly prohibited:
+
+No Software Sales: It is strictly forbidden to charge any fees for the Mod itself or to bundle it with paid software for sale.
+
+No In-Game Virtual Item Sales: Any multiplayer server is strictly prohibited from including, granting, or selling operatives, weapons, equipment, or virtual items derived from this Mod within paid content, VIP privileges, or sponsor packages (No Pay-to-Win).
+
+Content Creator Exemption: This clause does not restrict content creators (e.g., YouTube video creators, Twitch streamers) from generating platform ad revenue or receiving voluntary fan donations through playing, showcasing, or reviewing the audiovisual content of this Mod.
+
+ARTICLE 6: THIRD-PARTY ASSETS DISCLAIMER
+If this Mod contains, references, or is based on any third-party open-source libraries, public sound effects, or open-source code, the copyright of those parts remains with the original third-party rights holders and is subject to their respective independent open-source licenses. None of the strict terms of this Agreement are intended to override or infringe upon the legitimate open-source rights of such third-party assets.
+
+ARTICLE 7: MOJANG/MICROSOFT EULA COMPLIANCE
+This Mod is a third-party independent extension developed for the game Minecraft and is not officially produced, endorsed, or supported by Mojang AB or Microsoft Corporation. All official assets and trademarks of the Minecraft game belong to their respective owners. All terms and development practices of this Mod strictly comply with the "Minecraft End User License Agreement" (EULA) and commercial usage guidelines issued by Mojang.
+
+ARTICLE 8: RIGHT TO ABSOLUTE TERMINATION
+The Copyright Holder, Ray20123315, reserves the absolute right to revoke any rights granted in this Agreement (including but not limited to modpack integration rights and audiovisual distribution exemptions) at any time and without condition. The Copyright Holder has the right, at their sole discretion, to demand specific individuals, servers, or modpack publishers to immediately cease using and completely delete all files of this Mod, and the requested party shall have no right to dispute or appeal.
+
+ARTICLE 9: LIMITATION OF LIABILITY (DISCLAIMER OF WARRANTY)
+THE MOD IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF GAME STABILITY, SERVER COMPATIBILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MOD OR THE USE OR OTHER DEALINGS IN THE MOD (INCLUDING BUT NOT LIMITED TO CORRUPTED SAVE FILES, WORLD CRASHES, HARDWARE FAILURES, OR SERVER ECONOMY COLLAPSES). THE USER ASSUMES ALL RISKS ASSOCIATED WITH THE INSTALLATION AND OPERATION OF THIS MOD.
+
+DEVELOPER: RAY20123315
+PROJECT: delta_ops_hazardzone_Alpha_Alpha | All Rights Reserved | Version 1.0.0
+CONFIDENTIAL & PROPRIETARY

@@ -1,6 +1,7 @@
 package com.deltaops;
 
 import com.deltaops.block.ModBlocks;
+import com.deltaops.combat.DeathPenaltyHandler;
 import com.deltaops.config.ModConfig;
 import com.deltaops.network.ModNetwork;
 import com.deltaops.screen.ModMenuTypes;

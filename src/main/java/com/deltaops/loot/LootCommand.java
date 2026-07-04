@@ -6,6 +6,7 @@
 package com.deltaops.loot;
 
 import com.deltaops.DeltaOpsMod;
+import com.deltaops.admin.AdminConfigMenu;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -44,6 +45,22 @@ public class LootCommand {
                                     }
                                 });
                                 player.sendSystemMessage(Component.literal("已開啟物品分類編輯器。"));
+                                return 1;
+                            }))
+                    .then(Commands.literal("config").executes(ctx -> {
+                                ServerPlayer player = ctx.getSource().getPlayerOrException();
+                                NetworkHooks.openScreen(player, new MenuProvider() {
+                                    @Override
+                                    public Component getDisplayName() {
+                                        return Component.literal("管理員設定");
+                                    }
+
+                                    @Override
+                                    public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player1) {
+                                        return new AdminConfigMenu(id, inventory);
+                                    }
+                                });
+                                player.sendSystemMessage(Component.literal("已開啟管理員設定介面。"));
                                 return 1;
                             }))));
         }

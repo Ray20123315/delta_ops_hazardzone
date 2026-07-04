@@ -8,7 +8,6 @@ import net.minecraftforge.registries.RegistryObject;
 
 /**
  * 戰術物品註冊 - 零自訂材質，使用原版 Item 類別
- * 尺寸資訊儲存在 NBT 中，由 ItemSizeHelper 動態讀取
  */
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -16,10 +15,7 @@ public class ModItems {
 
     // ===== 醫療道具（自訂類別） =====
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TOURNIQUET = ITEMS.register("tourniquet", TourniquetItem::new);
-    public static final RegistryObject<Item> SURGERY_KIT = ITEMS.register("surgery_kit", SurgeryKitItem::new);
     public static final RegistryObject<Item> MEDKIT = ITEMS.register("medkit", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PAINKILLER = ITEMS.register("painkiller", PainkillerItem::new);
 
     // ===== 彈藥 =====
     public static final RegistryObject<Item> RIFLE_MAG = ITEMS.register("rifle_mag", () -> new Item(new Item.Properties()));

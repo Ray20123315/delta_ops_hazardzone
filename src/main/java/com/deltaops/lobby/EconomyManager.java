@@ -45,6 +45,18 @@ public class EconomyManager {
         loadPrices();
     }
 
+    public static void reloadPrices() {
+        loadPrices();
+    }
+
+    public static void setItemPrice(String itemId, long price) {
+        if (itemId == null || itemId.isBlank()) {
+            return;
+        }
+        ITEM_PRICES.put(itemId, Math.max(0L, price));
+        savePrices();
+    }
+
     private static void loadPrices() {
         try {
             if (!Files.exists(STORAGE_PATH)) {
@@ -75,6 +87,15 @@ public class EconomyManager {
             Files.writeString(STORAGE_PATH, json, StandardCharsets.UTF_8);
         } catch (IOException e) {
             DeltaOpsMod.LOGGER.error("Failed to create default item_prices.json", e);
+        }
+    }
+
+    private static void savePrices() {
+        try {
+            Files.createDirectories(STORAGE_PATH.getParent());
+            Files.writeString(STORAGE_PATH, GSON.toJson(ITEM_PRICES), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            DeltaOpsMod.LOGGER.error("Failed to save item prices", e);
         }
     }
 
