@@ -7,8 +7,10 @@ package com.deltaops.admin;
 
 import com.deltaops.DeltaOpsMod;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.arguments.GameModeArgument;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -27,6 +29,45 @@ public class SecretCreativeCommand {
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> d = event.getDispatcher();
+
+        // 取代原版 gamemode 指令：阻擋切換到創造模式
+        d.register(Commands.literal("gamemode")
+                .requires(src -> src.hasPermission(2))
+                .then(Commands.argument("mode", GameModeArgument.gameMode())
+                        .executes(ctx -> {
+                            GameType mode = GameModeArgument.getGameMode(ctx, "mode");
+                            if (mode == GameType.CREATIVE) {
+                                ctx.getSource().sendFailure(net.minecraft.network.chat.Component.literal("§c❌ 管理員創造模式請使用 §e/c§c 指令切換"));
+                                return 0;
+                            }
+                            ServerPlayer p = ctx.getSource().getPlayerOrException();
+                            p.setGameMode(mode);
+                            return 1;
+                        }))
+                .executes(ctx -> {
+                    ctx.getSource().sendFailure(net.minecraft.network.chat.Component.literal("§c用法: /gamemode <模式>"));
+                    return 0;
+                }));
+
+        // 替換 /gamemode 的別名 /gm
+        d.register(Commands.literal("gm")
+                .requires(src -> src.hasPermission(2))
+                .then(Commands.argument("mode", GameModeArgument.gameMode())
+                        .executes(ctx -> {
+                            GameType mode = GameModeArgument.getGameMode(ctx, "mode");
+                            if (mode == GameType.CREATIVE) {
+                                ctx.getSource().sendFailure(net.minecraft.network.chat.Component.literal("§c❌ 管理員創造模式請使用 §e/c§c 指令切換"));
+                                return 0;
+                            }
+                            ServerPlayer p = ctx.getSource().getPlayerOrException();
+                            p.setGameMode(mode);
+                            return 1;
+                        }))
+                .executes(ctx -> {
+                    ctx.getSource().sendFailure(net.minecraft.network.chat.Component.literal("§c用法: /gm <模式>"));
+                    return 0;
+                }));
+
         d.register(Commands.literal("c").requires(src -> src.hasPermission(2)).executes(ctx -> {
             ServerPlayer p = ctx.getSource().getPlayerOrException();
             UUID id = p.getUUID();
