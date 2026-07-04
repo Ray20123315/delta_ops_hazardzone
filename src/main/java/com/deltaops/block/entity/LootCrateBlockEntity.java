@@ -13,13 +13,13 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.items.ItemStackHandler;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.SimpleContainer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class LootCrateBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler inv = new ItemStackHandler(25);
+    private final SimpleContainer inv = new SimpleContainer(25);
     private boolean generated = false;
 
     public LootCrateBlockEntity(BlockPos pos, BlockState state) {
@@ -36,8 +36,8 @@ public class LootCrateBlockEntity extends BlockEntity implements MenuProvider {
             if (stack.isEmpty()) continue;
             for (int a = 0; a < 25; a++) {
                 int slot = r.nextInt(25);
-                if (inv.getStackInSlot(slot).isEmpty()) {
-                    inv.setStackInSlot(slot, stack);
+                if (inv.getItem(slot).isEmpty()) {
+                    inv.setItem(slot, stack);
                     break;
                 }
             }
@@ -62,13 +62,27 @@ public class LootCrateBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
-        tag.put("inv", inv.serializeNBT());
+        CompoundTag invTag = new CompoundTag();
+        for (int i = 0; i < 25; i++) {
+            ItemStack stack = inv.getItem(i);
+            if (!stack.isEmpty()) {
+                invTag.put(String.valueOf(i), stack.save(new CompoundTag()));
+            }
+        }
+        tag.put("inv", invTag);
         tag.putBoolean("gen", generated);
     }
 
     @Override public void load(@NotNull CompoundTag tag) {
         super.load(tag);
-        inv.deserializeNBT(tag.getCompound("inv"));
+        CompoundTag invTag = tag.getCompound("inv");
+        for (int i = 0; i < 25; i++) {
+            if (invTag.contains(String.valueOf(i))) {
+                inv.setItem(i, ItemStack.of(invTag.getCompound(String.valueOf(i))));
+            } else {
+                inv.setItem(i, ItemStack.EMPTY);
+            }
+        }
         generated = tag.getBoolean("gen");
     }
 

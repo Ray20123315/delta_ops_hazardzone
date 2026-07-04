@@ -22,9 +22,7 @@ public class ModCreativeTab {
                     .icon(() -> new ItemStack(Items.CHEST))
                     .displayItems((params, output) -> {
                         output.accept(ModItems.BANDAGE.get());
-                        output.accept(ModItems.SURGERY_KIT.get());
                         output.accept(ModItems.MEDKIT.get());
-                        output.accept(ModItems.PAINKILLER.get());
                         output.accept(ModItems.RIFLE_MAG.get());
                         output.accept(ModItems.PISTOL_MAG.get());
                         output.accept(ModItems.AMMO_BOX.get());
